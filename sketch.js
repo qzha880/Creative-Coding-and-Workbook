@@ -85,13 +85,13 @@ function clearText1(){
   button2  = createButton('next');
   button2.position(0, height -30);
   button2.mousePressed(clearLeft);
-  setTimeout(button3, 3000);
+  setTimeout(buttonThree, 3000);
   stroke(0);
   strokeWeight(5);
   line(windowWidth/2, 0, windowWidth/2, height);
 }
 
-function button3(){
+function buttonThree(){
   button3  = createButton('next');
   button3.position(width/2 +3, height -30);
   button3.mousePressed(clearRight);
