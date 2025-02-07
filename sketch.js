@@ -1,13 +1,20 @@
 let Me1;
 let Font1, Font2;
+let b1
 let button, button1, button2, button3, button4, button5, button6;
 let button7;
+// var amp;
+// var vol;
+var song;
 
 function preload(){
   Me1 = loadImage('images/Me a.png');
   // Font1 = loadFont('kindergarten.ttf');
   Font2 = loadFont('HYDiShengWuYouTiJ-2.ttf');
 
+  b1 = loadImage("images/Upstairs.jpg");
+
+  song = loadSound('walking-up-stairs-86304.mp3');
 }
 
 function setup() {
@@ -25,16 +32,18 @@ function setup() {
   button  = createButton('next');
   button.position(0, height -30);
   button.mousePressed(clearText);
+
+  // step = loadSound('walking-up-stairs-86304.mp3');
+  song.play();
+  song.setVolume(1);
+
 }
 
-function draw() {
-  // background(220);
+// function windowResized(){
+//   resizeCanvas(windowWidth,windowHeight);
+// }
 
-  // image(Me1, width/2, height/3);
-  // textSize(25);
-  // text("Hey! You are back!", width/3, height -100);
-  // textFont(Font2);
-  // text("嘿！你回来了！", width/3, height -70);
+function draw() {
 }
 
 function clearText(){
@@ -133,5 +142,15 @@ function clearCanvas(){
 }
 
 function buildingPic(){
-  
+  imageMode(CORNER);
+  b1.resize(width, height);
+  image(b1, 0, 0);
+  // let step = createAudio('walking-up-stairs.mp3');
+  // step.play();
+  // amp = new p5.Amplitude();
+  // vol = amp.getLevel();
 }
+
+// function mouseDoubleClicked(){
+//   step.play();
+// }
