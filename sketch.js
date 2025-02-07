@@ -1,4 +1,4 @@
-let Me1;
+let Me1, Me2;
 let Font1, Font2;
 let b1
 let button, button1, button2, button4, button5, button6;
