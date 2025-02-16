@@ -39,7 +39,7 @@ I tried to add selections ( but the selection result did not appear, only the se
 * I went back to my repository 5 and figured oout that I need to write the code in the setup function and the draw function at first, then I can use it in the defined functions.
 
   
-### Problem met
+### Problems met
 <img width="1440" alt="截屏2025-02-07 05 20 09" src="https://github.com/user-attachments/assets/802b4eb0-cabe-4700-948b-ef29f89ac5f1" />
 
 If I change the order of clicking the button, the text will not come up 
