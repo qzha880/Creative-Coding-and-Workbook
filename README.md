@@ -1,4 +1,4 @@
-<img width="1440" alt="截屏2025-02-07 10 50 23" src="https://github.com/user-attachments/assets/77116b48-1ea3-4fc2-9ead-05eae0b93921" /># Creative-Coding-and-Workbook
+# Creative-Coding-and-Workbook
 Creative Coding and Workbook
 
 ## Plans for the project
