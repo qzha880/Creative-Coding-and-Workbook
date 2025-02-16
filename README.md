@@ -15,9 +15,9 @@ Create an interactive computational artwork based on a conversation between a pe
 I added fonts by following the workshop 6 video. 
 I create a function to clear the canvas and prepare for the next step
 * Used rect to cover the area that I want to make blank
- `noStroke();
-  rect(0, height -150, width, height);
-  fill(0);`
+  `noStroke();`
+  `rect(0, height -150, width, height);`
+  `fill(0);`
 * Hide the button ` button.hide(); ` 
 
 
