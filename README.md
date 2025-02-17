@@ -60,7 +60,22 @@ I also tried to adjust the pixels of the mirror image.
 webCam.hide();
 image(webCam, 0, 0);
 ```
+Instead of using webCam, I used an image of a mirror. 
 
+I remove the button15, and created a setTimeout function to activate the alarm sound.
+* In order to create the feeling that the alarm suddenly goes off when the user is looking in the mirror.
+```
+function noMirror(){
+  textFont(Font1);
+  fill(0);
+  textSize(18);
+  text("* ?... I can't see myself...", width/2 +10, height -35);
+  // button15 = createButton('next');
+  // button15.position(width/2, height -30);
+  // button15.mousePressed(bathroomOne);
+  setTimeout(alarmStart, 2000);
+}
+```
 I fixed the problem of texts do not appear by the wrong clicking order
 * Added ` fill() ` if needed
 * Also deleted the setTimeout function for button3, since I do not need this any more. (I added the  button3 back to its original palce)
