@@ -25,11 +25,11 @@ I create a function to clear the canvas and prepare for the next step
 * I learnt to use `var` to add sounds and musics to my sketch (http://wiki.iad.zhdk.ch/PB/2554331315/p5.js+Variables)
 * I noticed that sometimes some of the buttons has to be pressed in a certain order - I used setTimeout function to make sure they are in the right order. ` setTimeout(button3, 3000);`
 ```
-  function button3(){
+function button3(){
   button3 = createButton('next');
   button3.position(width/2 +3, height -30);
   button3.mousePressed(clearRight);
-  }
+}
 ```
 Added audio to the sketch (How to add music to the sketch: https://www.youtube.com/watch?v=Pn1g1wjxl_0)
 * audio web: https://pixabay.com/sound-effects/search/walking-up-stairs/
@@ -38,7 +38,25 @@ I made some of the text shorter
 I tried to add selections ( but the selection result did not appear, only the selection buttons appeared) 
 * I went back to my repository 5 and figured oout that I need to write the code in the setup function and the draw function at first, then I can use it in the defined functions.
 
-  
+I wanted to add a mirror in my work. ` let webCam; `
+```
+pixelDensity(10);
+webCam = createCapture(VIDEO);
+webCam.size(200, 200);
+```
+
+I tried to give the mirror some filter. 
+```
+webCam.filter(INVERT);
+webCam.filter(BLUR);
+```
+
+I also tried to adjust the pixels of the mirror image. 
+```
+webCam.hide();
+image(webCam, 0, 0);
+```
+
 ### Problems met
 <img width="1440" alt="截屏2025-02-07 05 20 09" src="https://github.com/user-attachments/assets/802b4eb0-cabe-4700-948b-ef29f89ac5f1" />
 
@@ -64,5 +82,35 @@ noStroke();
 rect(0, 0, width/2, height);
 ```
 * Use `erase()` can erase the code in the draw function (https://p5js.org/search/?term=erase)
+
+<img width="1018" alt="截屏2025-02-10 16 44 12" src="https://github.com/user-attachments/assets/a8e7bca5-8475-4d88-b5e8-85dc4aad430d" />
+
+If I go to the next step after the erase function, the things that have been ereased came back. 
+* Because the code works as a loop, so the draw function will be actiavted again.
+* My solution is to add erase function in every defined functions - which did not work
+* At last, I tried to separate the selections into two buttons. I deleted the code for the selections and created two buttons in the splitCanvas function and it works fine.
+```
+function splitCanvas(){
+  buttonA = createButton('Why not use an elevator?');
+  buttonA.position(0, height -81);
+  buttonA.mousePressed(wrongAnswer);
+
+  buttonB = createButton('It is too tiring to climb up to the fifth floor.');
+  buttonB.position(0, height -61);
+  buttonB.mousePressed(rightAnswer);
+}
+```
+
+<img width="1093" alt="截屏2025-02-10 16 22 23" src="https://github.com/user-attachments/assets/5a77ae30-83f8-4b84-ab52-bdddd2b013f3" />
+
+The button that created in the draw function cannot be hided. 
+* I removed the button from the draw function, instead, I worte it in the splitCanvas function
+```
+function splitCanvas(){
+  button8  = createButton('next');
+  button8.position(width/2 +3, height -30);
+  button8.mousePressed(homePic);
+}
+```
 
 ### Here is the URL to the webpage for this project: https: https://qzha880.github.io/Creative-Coding-and-Workbook/
