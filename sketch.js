@@ -1,22 +1,28 @@
 let Me1, Me2;
-let Font1, Font2;
+let Font1, Font2, Font3, Font4;
 let b1, b2, b3, b4, b5, b6;
 let br1, br2, br3, br4;
 let mirror;
 let c0, c1, c2, c3;
+let phone;
+let notification;
 let button, button1, button2, button3, button4, button5, button6;
 let button7, button8, button9, button10, button11, button12, button13;
 let buttonA, buttonB;
 let buttonP1, buttonP2, buttonP3, buttonP4;
-let button14, button15, button16, button17;
+let button14, Button15, button15, button16, button17;
 let button18, button19, button20, button21, button22, button23;
-var step, hi, dream, alarm, running;
+let button24, button25, button26, button27;
+let button01, button02;
+var step, hi, dream, alarm, running, brakeGlass, crack, smallCrack, earthquake1, earthquake2, iphone, bgm, massage, off;
 
 function preload(){
   Me1 = loadImage('images/Me a.png');
   Me2 = loadImage('images/Me b.png');
   Font1 = loadFont('October Wish .otf');
   Font2 = loadFont('HYDiShengWuYouTiJ-2.ttf');
+  Font3 = loadFont('Roboto-Regular.ttf');
+  Font4 = loadFont('Y-B008YeZiGongChangDanDanHei-2.ttf');
 
   b1 = loadImage("images/Dark path.jpg");
   b2 = loadImage("images/Upstairs.jpg");
@@ -37,11 +43,23 @@ function preload(){
   c2 = loadImage("images/Computer room.jpg");
   c3 = loadImage("images/Class party.jpg");
 
+  phone = loadImage("images/istockphoto-483422126-612x612.jpg");
+  notification = loadImage("images/51548daead1c041a1215bec3d54f5b9c.jpg")
+
   step = loadSound('audios/walking-sound-effect-272246.mp3');
   hi = loadSound('audios/TEMPOREX - Hi.mp3');
   dream = loadSound('audios/Dream.mp3');
   alarm = loadSound('audios/clock-alarm-8761.mp3');
   running = loadSound('audios/running-on-concrete-268478.mp3');
+  brakeGlass = loadSound('audios/glass-broken-43626.mp3');
+  crack = loadSound('audios/rocks-6129.mp3');
+  smallCrack = loadSound('audios/cracking-bones-173109.mp3');
+  earthquake1 = loadSound('audios/earth-rumble-6953.mp3');
+  earthquake2 = loadSound('audios/052256_cracking-earthquake-cracking-soil-cracking-stone-86770.mp3');
+  iphone = loadSound('audios/iphone_alarm.mp3');
+  bgm = loadSound('audios/新录音 65.mp3');
+  massage = loadSound('audios/iphone-sms-tone-original-mp4-5732.mp3');
+  off = loadSound('audios/新录音 66.mp3');
 
 }
 
@@ -50,6 +68,8 @@ function setup() {
   background(220);
   
   imageMode(CENTER);
+  Me1.filter(BLUR,6);
+  Me1.filter(POSTERIZE);
   Me1.resize(100, 0);
   image(Me1, windowWidth/2, windowHeight/3);
   textSize(18);
@@ -111,6 +131,8 @@ function clearText(){
 
 function clearText1(){
   background(220);
+  Me2.filter(BLUR, 6);
+  Me2.filter(POSTERIZE);
   Me2.resize(200, 0);
   image(Me2, width/4, height/3);
   button1.hide();
@@ -195,6 +217,7 @@ function buildingPic(){
   button3.hide();
   hi.stop();
   imageMode(CORNER);
+  b1.filter(POSTERIZE);
   b1.resize(width, height);
   image(b1, 0, 0);
   step.play();
@@ -210,6 +233,7 @@ function splitCanvas(){
   noStroke();
   fill(0);
   imageMode(CORNER);
+  b2.filter(POSTERIZE);
   b2.resize(width/2, height -150);
   image(b2, 0, 0);
   text("This way.", width/2 +10, height -100);
@@ -239,6 +263,13 @@ function wrongAnswer(){
   button9 = createButton('next');
   button9.position(0, height -30);
   button9.mousePressed(whiteCanvas);
+  smallCrack.play();
+  smallCrack.setVolume(0.5);
+  setTimeout(smallCrackStop, 3000);
+}
+
+function smallCrackStop(){
+  smallCrack.stop();
 }
 
 function rightAnswer(){
@@ -257,13 +288,13 @@ function rightAnswer(){
 
 function homePic(){
   imageMode(CORNER);
+  b3.filter(POSTERIZE, 5);
   b3.resize(width/2, height);
   image(b3, width/2, 0);
   button8.hide();
   button10 = createButton('next');
   button10.position(width/2 +3, height -31);
   button10.mousePressed(walkIn);
-  // erase();
   dream.play();
   dream.setVolume(0.3);
 }
@@ -272,18 +303,19 @@ function whiteCanvas(){
   fill(255);
   noStroke();
   rect(0, 0, width/2, height);
-  // erase();
   button9.hide();
 }
 
 function walkIn(){
   imageMode(CORNER);
+  b4.filter(POSTERIZE, 5);
   b4.resize(width/2, height/2);
   image(b4, width/2, 0);
   line(width/2, height/2, width, height);
   stroke(0)
   strokeWeight(3)
   imageMode(CORNER);
+  b5.filter(POSTERIZE, 7);
   b5.resize(width/2, height);
   image(b5, width/2, height/2);
   button10.hide();
@@ -330,12 +362,16 @@ function inBedroom(){
 function inBathroom(){
   button12.hide();
   imageMode(CORNER);
+  mirror.filter(BLUR, 2);
   mirror.resize(width/2, height/2 - 50);
   image(mirror, width/2, height/2);
   noStroke();
   fill(255);
   rect(width/2, height -55, width, height);
-  setTimeout(noMirror, 1000)
+  Button15 = createButton('look in the mirror');
+  Button15.position(width/2, height -30);
+  Button15.mousePressed(noMirror);
+  // setTimeout(noMirror, 1000)
   // pixelDensity(10);
   // webCam = createCapture(VIDEO);
   // webCam.size(200, 200);
@@ -452,17 +488,21 @@ function inBathroom(){
 }
 
 function noMirror(){
+  Button15.hide();
   textFont(Font1);
   fill(0);
   textSize(18);
-  text("* ?... I can't see myself...", width/2 +10, height -35);
-  button15 = createButton('next');
-  button15.position(width/2, height -30);
-  button15.mousePressed(bathroomOne);
+  text("(* ?... I can't see myself...)", width/2 +10, height -35);
+  // button15 = createButton('next');
+  // button15.position(width/2, height -30);
+  // button15.mousePressed(bathroomOne);
+  setTimeout(alarmStart, 3000);
 }
+
 function bedroomOne(){
   buttonP1.hide();
   imageMode(CORNER);
+  br1.filter(POSTERIZE, 7);
   br1.resize(width/4, height/4);
   image(br1, width/2, 0);
 }
@@ -470,6 +510,7 @@ function bedroomOne(){
 function bedroomTwo(){
   buttonP2.hide();
   imageMode(CORNER);
+  br2.filter(POSTERIZE, 7);
   br2.resize(width/4, height/4);
   image(br2, width/2 + width/4, 0);
 }
@@ -477,6 +518,7 @@ function bedroomTwo(){
 function bedroomThree(){
   buttonP3.hide();
   imageMode(CORNER);
+  br3.filter(POSTERIZE, 7);
   br3.resize(width/4, height/4);
   image(br3, width/2, height/4);
 }
@@ -484,18 +526,19 @@ function bedroomThree(){
 function bedroomFour(){
   buttonP4.hide();
   imageMode(CORNER);
+  br4.filter(POSTERIZE, 7);
   br4.resize(width/4, height/4);
   image(br4, width/2 + width/4, height/4);
   setTimeout(bedroomOver, 1000)
 }
 
-function bathroomOne(){
-  button15.hide();
-  noStroke();
-  fill(0);
-  rect(width/2, height/2, width, height);
-  setTimeout(alarmStart, 1500);
-}
+// function bathroomOne(){
+//   button15.hide();
+//   noStroke();
+//   fill(0);
+//   rect(width/2, height/2, width, height);
+//   setTimeout(alarmStart, 1500);
+// }
 
 function bedroomOver(){
   button14 = createButton('next');
@@ -511,6 +554,9 @@ function bedroomClean(){
 }
 
 function alarmStart(){
+  noStroke();
+  fill(0);
+  rect(width/2, height/2, width, height);
   dream.stop();
   alarm.play();
   alarm.setVolume(1);
@@ -521,7 +567,7 @@ function lateToSchool(){
   alarm.stop();
   button16 = createButton('next');
   button16.position(width/2, height -30);
-  button16.mousePressed(hurryUp);
+  button16.mousePressed(goFirst);
   fill(255);
   textFont(Font2);
   textSize(18);
@@ -529,18 +575,54 @@ function lateToSchool(){
   text("天呐！我们上学要迟到了！", width/2 +10, height -70);
 }
 
-function hurryUp(){
+function goFirst(){
   button16.hide();
   noStroke();
   fill(0);
   rect(width/2, height -150, width, height);
   fill(255);
-  text("Hurry up!", width/2 +10, height -100);
-  text("快点！", width/2 +10, height -70);
+  text("You go first, I'll pack up and come find you.", width/2 +10, height -100);
+  text("你先走吧，我收拾一下就找你。", width/2 +10, height -70);
+  button15 = createButton('leave home');
+  button15.position(width/2, height -30);
+  button15.mousePressed(packUp);
+}
+
+function packUp(){
+  button15.hide();
+  noStroke();
+  fill(0);
+  rect(width/2, height -150, width, height);
+  brakeGlass.play();
+  brakeGlass.setVolume(0.3);
+  setTimeout(whatSound, 3000);
+}
+
+function whatSound(){
+  noStroke();
+  fill(0);
+  rect(width/2, height -150, width, height);
+  textSize(18);
+  textFont(Font1);
+  fill(255);
+  text("(* What was that sound?)", width/2 +10, height -100);
   button17 = createButton('go to school');
   button17.position(width/2, height -30);
   button17.mousePressed(leaveRoom);
 }
+
+// function hurryUp(){
+//   button16.hide();
+//   noStroke();
+//   fill(0);
+//   rect(width/2, height -150, width, height);
+//   fill(255);
+//   text("Hurry up!", width/2 +10, height -100);
+//   text("快点！", width/2 +10, height -70);
+//   button17 = createButton('go to school');
+//   button17.position(width/2, height -30);
+//   button17.mousePressed(leaveRoom);
+// }
 
 function leaveRoom(){
   button17.hide();
@@ -563,9 +645,18 @@ function leaveRoom(){
 
 function wayToSchool(){
   button18.hide();
+  b6.filter(INVERT);
   imageMode(CORNER);
   b6.resize(width, height);
   image(b6, 0, 0);
+  fill(220);
+  noStroke();
+  rect(0, height -150, width, height);
+  fill(0);
+  textFont(Font2);
+  textSize(18);
+  text("Hurry up!", 10, height -100);
+  text("快点！", 10, height -70);
   running.play();
   running.setVolume(1);
   setTimeout(stopRunning, 5000);
@@ -583,6 +674,9 @@ function stopRunning(){
 
 function atSchool(){
   button19.hide();
+  bgm.play();
+  bgm.setVolume(0.9);
+  c0.filter(POSTERIZE, 5);
   imageMode(CORNER);
   c0.resize(width, height);
   image(c0, 0, 0);
@@ -600,16 +694,15 @@ function atSchool(){
 
 function inSchool(){
   button20.hide();
+  c1.filter(POSTERIZE, 5);
   imageMode(CORNER);
   c1.resize(width/2, height);
   image(c1, 0, 0);
+  c2.filter(POSTERIZE, 5);
   imageMode(CORNER);
   c2.resize(width/2, height);
   image(c2, width/2, 0);
-  // button21 = createButton('next');
-  // button21.position(0, height -30);
-  // button21.mousePressed(class1);
-  setTimeout(class1, 800);
+  setTimeout(class1, 1000);
 
   button22 = createButton('next');
   button22.position(width/2, height -30);
@@ -617,28 +710,196 @@ function inSchool(){
 }
 
 function class1(){
-  // button21.hide();
   imageMode(CORNER);
-  c3.resize(width/2, height/2);
+  c3.filter(POSTERIZE, 5);
+  c3.resize(width/2, height/2 + height/5);
   image(c3, 0, 0);
   fill(220);
   noStroke();
-  rect(0, height/2, width/2, height);
+  rect(0, height/2 + height/5, width/2, height);
   fill(0);
   textSize(18);
   text("Seems like we're having a class party!", width - width +10, height -100);
   text("看起来我们好像在举行班级派对！", width - width +10, height -70);
-  button21 = createButton('What was that flash of just now?');
+  button21 = createButton('What was that flash just now?');
   button21.position(0, height -30);
   button21.mousePressed(question1);
 }
 
 function class2(){
   button22.hide();
+  imageMode(CORNER);
+  c2.filter(POSTERIZE, 5);
+  c2.resize(width/2, height/2);
+  image(c2, width/2, 0);
+  fill(220);
+  noStroke();
+  rect(width/2, height/2, width, height);
+  button24 = createButton('next');
+  button24.position(width/2, height/2 -30);
+  button24.mousePressed(computerClass);
+  button25 = createButton('......');
+  button25.position(width/2, height -30);
+  button25.mousePressed(sayNothing);
 }
 
 function question1(){
   button21.hide();
+  bgm.setVolume(0.7);
+  fill(220);
+  noStroke();
+  rect(0, height/2, width/2, height);
+  fill(0);
   text("I didn't see any, maybe you just hallucinated.", width - width +10, height -100);
   text("我没看到啊，你可能刚刚看走眼了吧。", width - width +10, height -70);
+  crack.play();
+  crack.setVolume(0.5);
+  button23 = createButton('next');
+  button23.position(0, height -30);
+  button23.mousePressed(afterCrack);
+}
+
+function afterCrack(){
+  button23.hide();
+  fill(0);
+  noStroke();
+  rect(0, 0, width/2, height);
+}
+
+function computerClass(){
+  button24.hide();
+  fill(220);
+  noStroke();
+  rect(width/2, height/2 -100, width, height/2);
+  textSize(18);
+  textFont(Font2);
+  fill(0);
+  text("This is our computer class.", width/2 +10, height/2 -60);
+  text("这是我们信息教室。", width/2 +10, height/2 -30);
+  button26 = createButton('next');
+  button26.position(width/2, height/2 -30);
+  button26.mousePressed(twoParts);
+}
+
+function sayNothing(){
+  button25.hide();
+  textSize(18);
+  textFont(Font1);
+  fill(0);
+  text("(* You looked around)", width/2 +10, height -100);
+  button27 = createButton('ask');
+  button27.position(width/2, height -30);
+  button27.mousePressed(question2);
+}
+
+function twoParts(){
+  button26.hide();
+  fill(0);
+  noStroke();
+  rect(width/2, 0, width, height/2);
+}
+
+function question2(){
+  button27.hide();
+  fill(220);
+  noStroke();
+  rect(width/2, height/2, width, height);
+  fill(0);
+  text("Why is there no one here? Even on the way we passed.", width/2 +10, height -100);
+  setTimeout(theAnswer,4000);
+  setTimeout(earthquakeStart, 2500);
+  setTimeout(blackScreen, 2000);
+}
+
+function blackScreen(){
+  button26.hide();
+  noStroke();
+  fill(0);
+  rect(0, 0, width, height);
+  bgm.setVolume(0.6);
+}
+
+function earthquakeStart(){
+  bgm.setVolume(0.4);
+  earthquake1.play();
+  earthquake1.setVolume(0.7);
+  setTimeout(earthquakeSecond, 4000);
+}
+
+function earthquakeSecond(){
+  bgm.setVolume(0.2);
+  earthquake1.stop();
+  earthquake2.play();
+  earthquake2.setVolume(1);
+}
+
+function theAnswer(){
+  textSize(20);
+  textFont(Font2);
+  fill(255);
+  text("......", width - width +10, height -100);
+  text("······", width - width +10, height -70);
+  setTimeout(willYouBeBack, 4000);
+}
+
+function willYouBeBack(){
+  noStroke();
+  fill(0);
+  rect(0, 0, width, height);
+  text("Will you be back?", width - width +10, height -100);
+  text("你还会回来吗？", width - width +10, height -70);
+  setTimeout(realLifeAlarm, 5000);
+}
+
+function realLifeAlarm(){
+  earthquake2.stop();
+  bgm.stop();
+  iphone.play();
+  iphone.setVolume(1);
+  button01 = createButton('turn off alarm');
+  button01.position(0, height -30);
+  button01.mousePressed(turnOff);
+}
+
+function turnOff(){
+  imageMode(CORNER);
+  phone.resize(width, height);
+  image(phone, 0, 0);
+  button01.hide();
+  iphone.stop();
+  setTimeout(getMessage, 3000);
+}
+
+function getMessage(){
+  noStroke();
+  fill(0);
+  rect(0, 0, width, height);
+  imageMode(CORNER);
+  notification.resize(0, height);
+  image(notification, 0, 0);
+  massage.play();
+  massage.setVolume(1);
+  fill(0);
+  textSize(22);
+  textFont(Font3);
+  text("Unknown: I know you're not her, but it's still nice to meet you.", 100, height/2 + 50);
+  textSize(22);
+  textFont(Font4);
+  text("我知道你不是她，但还是很高兴能认识你。", 100, height/2 + 100);
+  button02 = createButton('turn off the phone');
+  button02.position(0, height -30);
+  button02.mousePressed(turnOffPhone);
+}
+
+function turnOffPhone(){
+  button02.hide();
+  off.play();
+  off.setVolume(1);
+  noStroke();
+  fill(0);
+  rect(0, 0, width, height);
+  fill(255);
+  textSize(16);
+  textFont(Font2);
+  text("WendyZhang", width -200, height -100);
 }
