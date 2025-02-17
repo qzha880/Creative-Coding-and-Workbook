@@ -134,7 +134,7 @@ function inBathroom(){
   image(webCam, 0, 0);
 }
 ```
-** The webCam image will be freezed from the start.
+* The webCam image will be freezed from the start.
 
 <img width="913" alt="截屏2025-02-13 01 33 46" src="https://github.com/user-attachments/assets/aa70415e-c872-4f89-b0fc-4f763e9b7844" />
 
