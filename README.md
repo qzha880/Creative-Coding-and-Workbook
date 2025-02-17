@@ -117,4 +117,33 @@ function splitCanvas(){
 }
 ```
 
+<img width="1317" alt="截屏2025-02-13 01 10 26" src="https://github.com/user-attachments/assets/96aa18ff-c9ce-4ab6-9ba6-3f47c6daeda2" />
+
+When I was using the webCam in the sketch, during the test, all the buttons and sudios were working as usual, but the images, the image of the camera, and the texts were not working. 
+* I think this might because a part of the code is in the draw function, that's wht they were not influenced.
+
+<img width="928" alt="截屏2025-02-13 01 22 07" src="https://github.com/user-attachments/assets/d8af4742-d85b-414e-804e-f975245bfdee" />
+
+* I deleted all the code in the draw function and move them in the 'inBathroom' function.
+```
+function inBathroom(){
+  pixelDensity(10);
+  webCam = createCapture(VIDEO);
+  webCam.size(200, 200);
+  webCam.hide();
+  image(webCam, 0, 0);
+}
+```
+** The webCam image will be freezed from the start.
+
+<img width="913" alt="截屏2025-02-13 01 33 46" src="https://github.com/user-attachments/assets/aa70415e-c872-4f89-b0fc-4f763e9b7844" />
+
+* Tried with the most basic way of adding the camera to the skecth - the camera only appeared under the canvas, and still influenced the other code working progress.
+
+<img width="924" alt="截屏2025-02-13 17 48 21" src="https://github.com/user-attachments/assets/e21a2bdc-b71d-47da-8a4e-6553d2770e0a" />
+
+* Used the ` resizeCanvas() ` (https://p5js.org/reference/p5/resizeCanvas/) - resized the canvas to make the camera works inside the window.
+* Filters ` filter() ` only work for images, so I cannot add anything to the basic camera (https://p5js.org/reference/p5/filter/)
+* Since a normal camera does not achieve my plan, therefore I decieded not to use a webcam in this work. 
+
 ### Here is the URL to the webpage for this project: https: https://qzha880.github.io/Creative-Coding-and-Workbook/
