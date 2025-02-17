@@ -61,6 +61,35 @@ webCam.hide();
 image(webCam, 0, 0);
 ```
 
+I fixed the problem of texts do not appear by the wrong clicking order
+* Added ` fill() ` if needed
+* Also deleted the setTimeout function for button3, since I do not need this any more. (I added the  button3 back to its original palce)
+
+Fixed some copy and paste error - sometimes I copied the previous code to make the new function but forgot to delete the unnecessary part. 
+
+During coding, I need to make sure to hide the buttons that were not needed when the next scene is about to come up.
+```
+function leaveRoom(){
+  button17.hide();
+  noStroke();
+  fill(0);
+  rect(0, 0, width, height);
+  button18 = createButton('next');
+  button18.position(0, height -30);
+  button18.mousePressed(wayToSchool);
+  buttonA.hide();
+  buttonB.hide();
+  button9.hide();
+  button11.hide();
+  buttonP1.hide();
+  buttonP2.hide();
+  buttonP3.hide();
+  buttonP4.hide();
+  button14.hide();
+}
+```
+I added a new scene - school
+
 ### Problems met
 <img width="1440" alt="截屏2025-02-07 05 20 09" src="https://github.com/user-attachments/assets/802b4eb0-cabe-4700-948b-ef29f89ac5f1" />
 
@@ -144,6 +173,33 @@ function inBathroom(){
 
 * Used the ` resizeCanvas() ` (https://p5js.org/reference/p5/resizeCanvas/) - resized the canvas to make the camera works inside the window.
 * Filters ` filter() ` only work for images, so I cannot add anything to the basic camera (https://p5js.org/reference/p5/filter/)
-* Since a normal camera does not achieve my plan, therefore I decieded not to use a webcam in this work. 
+* Since a normal camera does not achieve my plan, therefore I decieded not to use a webcam in this work.
+
+<img width="571" alt="截屏2025-02-18 02 50 06" src="https://github.com/user-attachments/assets/7cc4633a-6550-4ed6-a2e1-3ee65772d83b" />
+
+If the buttons were pressed in a wrong order, the texts in the previous function will not appear. 
+* I deleted the erase functions that I accidently added before, and then it all works fine.
+
+<img width="931" alt="截屏2025-02-18 02 53 00" src="https://github.com/user-attachments/assets/63e8c8d2-0b89-4c2b-bcac-41918aa64a94" />
+
+Only the button at the right can be hide, if I click the left button after clicking the right button, the right one will appear again. 
+* This is because I forgot to hide the button20 in the 'inSchool' function `button20.hide(); `
+```
+function inSchool(){
+  //button20.hide();
+  imageMode(CORNER);
+  c1.resize(width/2, height);
+  image(c1, 0, 0);
+  imageMode(CORNER);
+  c2.resize(width/2, height);
+  image(c2, width/2, 0);
+  button21 = createButton('next');
+  button21.position(0, height -30);
+  button21.mousePressed(class1);
+  button22 = createButton('next');
+  button22.position(width/2, height -30);
+  button22.mousePressed(class2);
+}
+```
 
 ### Here is the URL to the webpage for this project: https: https://qzha880.github.io/Creative-Coding-and-Workbook/
