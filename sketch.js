@@ -492,7 +492,7 @@ function noMirror(){
   textFont(Font1);
   fill(0);
   textSize(18);
-  text("(* ?... I can't see myself...)", width/2 +10, height -35);
+  text("(* ?... I can't see myself in the mirror...)", width/2 +10, height -35);
   // button15 = createButton('next');
   // button15.position(width/2, height -30);
   // button15.mousePressed(bathroomOne);
@@ -770,7 +770,7 @@ function computerClass(){
   button24.hide();
   fill(220);
   noStroke();
-  rect(width/2, height/2 -100, width, height/2);
+  rect(width/2, height/2 -100, width/2, 100);
   textSize(18);
   textFont(Font2);
   fill(0);
@@ -787,6 +787,10 @@ function sayNothing(){
   textFont(Font1);
   fill(0);
   text("(* You looked around)", width/2 +10, height -100);
+  setTimeout(askButton, 2000);
+}
+
+function askButton(){
   button27 = createButton('ask');
   button27.position(width/2, height -30);
   button27.mousePressed(question2);
@@ -805,10 +809,12 @@ function question2(){
   noStroke();
   rect(width/2, height/2, width, height);
   fill(0);
+  textSize(18);
+  textFont(Font1);
   text("Why is there no one here? Even on the way we passed.", width/2 +10, height -100);
   setTimeout(theAnswer,4000);
-  setTimeout(earthquakeStart, 2500);
-  setTimeout(blackScreen, 2000);
+  setTimeout(earthquakeStart, 3500);
+  setTimeout(blackScreen, 3000);
 }
 
 function blackScreen(){
@@ -843,15 +849,19 @@ function theAnswer(){
 }
 
 function willYouBeBack(){
-  noStroke();
+  textSize(20);
+  textFont(Font2);
   fill(0);
   rect(0, 0, width, height);
+  fill(255);
   text("Will you be back?", width - width +10, height -100);
   text("你还会回来吗？", width - width +10, height -70);
   setTimeout(realLifeAlarm, 5000);
 }
 
 function realLifeAlarm(){
+  fill(0);
+  rect(0, 0, width, height);
   earthquake2.stop();
   bgm.stop();
   iphone.play();
@@ -898,8 +908,15 @@ function turnOffPhone(){
   noStroke();
   fill(0);
   rect(0, 0, width, height);
+  setTimeout(signName, 1000);
+}
+
+function signName(){
   fill(255);
   textSize(16);
   textFont(Font2);
   text("WendyZhang", width -200, height -100);
+  textSize(16);
+  textFont(Font4);
+  text("温迪张", width -200, height -70);
 }
