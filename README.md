@@ -166,6 +166,8 @@ At the end I named the last button "turn off the phone" to expresses that after 
 
 Added a signature at the bottom right corner as the ending (I tried to make the signature appear at the same time as the sound made - just for a rhythm match.
 
+Deleted all the unnecessary code.
+
 ### Problems met
 <img width="1440" alt="截屏2025-02-07 05 20 09" src="https://github.com/user-attachments/assets/802b4eb0-cabe-4700-948b-ef29f89ac5f1" />
 
