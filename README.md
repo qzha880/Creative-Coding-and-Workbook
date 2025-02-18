@@ -12,6 +12,8 @@ Create an interactive computational artwork based on a conversation between a pe
 ## Coding process
 <img width="1440" alt="截屏2025-02-07 04 41 52" src="https://github.com/user-attachments/assets/6bad2ecb-2991-4dfc-9896-9467f5f758d6" />
 
+First, I found images that are suit to my idea of a dream-like world (also have Chinese culture)
+
 I added fonts by following the workshop 6 video. 
 * I used fonts that looks like it was hand written by a kid to make it suit the style of my work.
 (since the conversation is between a kid and the user)
@@ -104,6 +106,65 @@ function leaveRoom(){
 }
 ```
 I added a new scene - school
+
+Tried to create some glitches by using the setTimeout function to achieve an effect of image flashed fast. ` setTimeout(class1, 1000); `
+
+Used different audios to pave the way for the subsequent plot to lead to the conclusion that this world is not real and the user can not stay in the world. 
+* the audios that have been used in the work
+```
+step = loadSound('audios/walking-sound-effect-272246.mp3');
+  hi = loadSound('audios/TEMPOREX - Hi.mp3');
+  dream = loadSound('audios/Dream.mp3');
+  alarm = loadSound('audios/clock-alarm-8761.mp3');
+  running = loadSound('audios/running-on-concrete-268478.mp3');
+  brakeGlass = loadSound('audios/glass-broken-43626.mp3');
+  crack = loadSound('audios/rocks-6129.mp3');
+  smallCrack = loadSound('audios/cracking-bones-173109.mp3');
+  earthquake1 = loadSound('audios/earth-rumble-6953.mp3');
+  earthquake2 = loadSound('audios/052256_cracking-earthquake-cracking-soil-cracking-stone-86770.mp3');
+  iphone = loadSound('audios/iphone_alarm.mp3');
+  bgm = loadSound('audios/新录音 65.mp3');
+  massage = loadSound('audios/iphone-sms-tone-original-mp4-5732.mp3');
+  off = loadSound('audios/新录音 66.mp3');
+```
+
+Each time the cracking sound and the earthquake start, the background music will become smaller and gradually become silence. 
+
+<img width="1440" alt="截屏2025-02-18 10 28 13" src="https://github.com/user-attachments/assets/70c2a831-91e3-4c7c-b50f-a8c311435df5" />
+
+I applied filters to the images to suit my story background - dream & memory (https://p5js.org/reference/p5/filter/)
+```
+filter(INVERT)
+filter(BLUR)
+filter(POSTERIZE)
+```
+* I also used parameter to adjust the filter for some of the images. ` br1.filter(POSTERIZE, 7); `
+
+<img width="310" alt="截屏2025-02-18 10 26 51" src="https://github.com/user-attachments/assets/f7180b93-ab3e-4e9d-a74c-cefb232444f2" />
+
+* For some images I used more than one filters.
+```
+Me1.filter(BLUR,6);
+Me1.filter(POSTERIZE);
+```
+
+At last I change the story background from the dream-like world to the reality. 
+* I used the very common iphone alarm, which people can hear in their everyday life.
+* As well as the notification sound and the sound for turning off the phone.
+
+![istockphoto-483422126-612x612](https://github.com/user-attachments/assets/7396d8ea-3cad-4f8f-8dc4-f2a1c1adc1de)
+
+I did not only use the sound to connect the work to the real world, I also used the images of things that people see usually. 
+* phone & massage
+* I chose the image of a person holding the phone in the first person perspective - the user's perspective
+
+<img width="850" alt="截屏2025-02-18 11 20 10" src="https://github.com/user-attachments/assets/f08a6177-9e4b-4a94-8d45-714a46c1a9c0" />
+
+At the end I named the last button "turn off the phone" to expresses that after going through the previous adventure, the person holding the phone is finally determined to let go of the past and face the present positively to start the new day. 
+
+<img width="213" alt="截屏2025-02-18 11 20 24" src="https://github.com/user-attachments/assets/31750b89-d75b-4e75-b5ea-060d8ef9b03c" />
+
+Added a signature at the bottom right corner as the ending (I tried to make the signature appear at the same time as the sound made - just for a rhythm match.
 
 ### Problems met
 <img width="1440" alt="截屏2025-02-07 05 20 09" src="https://github.com/user-attachments/assets/802b4eb0-cabe-4700-948b-ef29f89ac5f1" />
