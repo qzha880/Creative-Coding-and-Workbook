@@ -79,23 +79,6 @@ function setup() {
   button = createButton('next');
   button.position(0, height -30);
   button.mousePressed(clearText);
-
-  // pixelDensity(1);
-  // webCam = createCapture(VIDEO);
-  // webCam.size(width/scale, height/scale);
-  // webCam.hide();
-
-  // for (x = 0; x < 200; x++){
-  //   rx = random(15, width - 15);
-  //   ry = random(15, height - 15);
-  //   lineSystem1[x] = new horizontalLine(rx, ry);
-  // }
-
-  // for (x = 0; x < 200; x++){
-  //   rx = random(15, width - 15);
-  //   ry = random(15, height - 15);
-  //   lineSystem2[x] = new verticalLine(rx, ry);
-  // }
 }
 
 function draw() {
@@ -371,120 +354,6 @@ function inBathroom(){
   Button15 = createButton('look in the mirror');
   Button15.position(width/2, height -30);
   Button15.mousePressed(noMirror);
-  // setTimeout(noMirror, 1000)
-  // pixelDensity(10);
-  // webCam = createCapture(VIDEO);
-  // webCam.size(200, 200);
-  // webCam.filter(INVERT);
-  // webCam.filter(BLUR);
-  // setTimeout(noMirror, 5000);
-
-  // webCam.hide();
-  // image(webCam, 0, 0);
-
-//   webCam = createCapture(VIDEO);
-//   webCam.size(width/scale, height/scale);
-//   webCam.hide();
-
-//   for (x = 0; x < 200; x++){
-//     rx = random(15, width - 15);
-//     ry = random(15, height - 15);
-//     lineSystem1[x] = new horizontalLine(rx, ry);
-//   }
-
-//   for (x = 0; x < 200; x++){
-//     rx = random(15, width - 15);
-//     ry = random(15, height - 15);
-//     lineSystem2[x] = new verticalLine(rx, ry);
-//   }
-
-//   webCam.loadPixels();
-
-//   for (x = 0; x < lineSystem1.length; x++){
-//     lineSystem1[x].move();
-//     lineSystem1[x].show();
-//     lineSystem1[x].checkEdges();
-//   }
-
-//   for (x = 0; x < lineSystem2.length; x++){
-//     lineSystem2[x].move();
-//     lineSystem2[x].show();
-//     lineSystem2[x].checkEdges();
-//   }
-//   // button13 = createButton('next');
-//   // button13.position(width/2 +3, height/2 -31);
-//   // button13.mousePressed(bathroomOne);
-// }
-
-// class horizontalLine{
-
-//   constructor(x, y){
-//     this.x = x;
-//     this.y = y;
-
-//   }
-
-//   move(){
-//     this.x = this.x + random (-8, 8);
-//     this.y = this.y + random (-8, 8);
-//   }
-
-//   show(){
-//     let pX = this.x / scale;
-//     let pY = this.y / scale;
-//     let pixelColour = webCam.get(pX, pY);
-//     fill(pixelColour[0], pixelColour[1], pixelColour[2], 120);
-//     noStroke();
-//     rect(width-this.x, this.y, width/10, 1);
-//   }
-
-//   checkEdges(){
-//     if(this.x < 15){
-//       this.x = 15;
-//     } else if (this.x > width - 15){
-//       this.x = width - 15;
-//     }
-//     if(this.y < 15){
-//       this.y = 15;
-//     } else if (this.y > height - 15){
-//       this.y = height - 15;
-//     }
-//   }
-// }
-
-// class verticalLine{
-
-//   constructor(x, y){
-//     this.x = x;
-//     this.y = y;
-//   }
-
-//   move(){
-//     this.x = this.x + random (-8, 8);
-//     this.y = this.y + random (-8, 8);
-//   }
-
-//   show(){
-//     let pX = this.x / scale;
-//     let pY = this.y / scale;
-//     let pixelColour = webCam.get(pX, pY);
-//     fill(pixelColour[0], pixelColour[1], pixelColour[2], 120);
-//     noStroke();
-//     rect(width-this.x, this.y, 1, height/10);
-//   }
-
-//   checkEdges(){
-//     if(this.x < 15){
-//       this.x = 15;
-//     } else if (this.x > width - 15){
-//       this.x = width - 15;
-//     }
-//     if(this.y < 15){
-//       this.y = 15;
-//     } else if (this.y > height - 15){
-//       this.y = height - 15;
-//     }
-//   }
 }
 
 function noMirror(){
@@ -493,9 +362,6 @@ function noMirror(){
   fill(0);
   textSize(18);
   text("(* ?... I can't see myself in the mirror...)", width/2 +10, height -35);
-  // button15 = createButton('next');
-  // button15.position(width/2, height -30);
-  // button15.mousePressed(bathroomOne);
   setTimeout(alarmStart, 3000);
 }
 
@@ -532,14 +398,6 @@ function bedroomFour(){
   setTimeout(bedroomOver, 1000)
 }
 
-// function bathroomOne(){
-//   button15.hide();
-//   noStroke();
-//   fill(0);
-//   rect(width/2, height/2, width, height);
-//   setTimeout(alarmStart, 1500);
-// }
-
 function bedroomOver(){
   button14 = createButton('next');
   button14.position(width/2 + width/4, height/4);
@@ -571,7 +429,7 @@ function lateToSchool(){
   fill(255);
   textFont(Font2);
   textSize(18);
-  text("OMG! We gonna be late to the school!", width/2 +10, height -100);
+  text("OMG! We're going to be late for school!", width/2 +10, height -100);
   text("天呐！我们上学要迟到了！", width/2 +10, height -70);
 }
 
@@ -610,19 +468,6 @@ function whatSound(){
   button17.position(width/2, height -30);
   button17.mousePressed(leaveRoom);
 }
-
-// function hurryUp(){
-//   button16.hide();
-//   noStroke();
-//   fill(0);
-//   rect(width/2, height -150, width, height);
-//   fill(255);
-//   text("Hurry up!", width/2 +10, height -100);
-//   text("快点！", width/2 +10, height -70);
-//   button17 = createButton('go to school');
-//   button17.position(width/2, height -30);
-//   button17.mousePressed(leaveRoom);
-// }
 
 function leaveRoom(){
   button17.hide();
